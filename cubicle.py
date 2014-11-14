@@ -99,12 +99,13 @@ def compute_cube(calc):
 
 def test_compute_cube():
 
-    calc = "0.5*example.cube -0.5*example.cube"
+    calc = "0.5*example.cube -0.25*example.cube -0.25*example.cube"
     result = compute_cube(calc)
     with open('zero.cube', 'r') as f:
         reference = f.read()
     result += '\n'
-    assert(result == reference)
+    same = (result == reference)
+    assert(same)
 
 #-------------------------------------------------------------------------------
 
