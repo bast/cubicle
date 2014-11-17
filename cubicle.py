@@ -29,17 +29,19 @@ def parse_args(argv):
 
 #-------------------------------------------------------------------------------
 
-def file_to_array(s1):
+def file_to_array(s):
 
-    s1 = string.split(s1, '\n')
-    s2 = ''
-    for i in range(len(s1)):
-        if i > 1:
-            s2 += string.replace(s1[i], '\n', ' ')
-    for x in range(10):
-        s2 = string.replace(s2, '  ', ' ')
+    s_new = []
+    for i, line in enumerate(s):
+        if i > 1: # ignore first two comment lines
+            s_new.append(line)
 
-    return string.split(s2, ' ')
+    s_new = '\n'.join(s_new)
+    s_new = string.replace(s_new, '\n', ' ')
+    s_new = s_new.split()
+
+    # ugly empty first element is for historic reason
+    return [' '] + s_new
 
 #-------------------------------------------------------------------------------
 
@@ -51,7 +53,7 @@ def compute_cube(calc):
         a = word.split('*')
         f_l.append(float(a[0]))
         with open(a[1], 'r') as f:
-            cube_l.append(file_to_array(f.read()))
+            cube_l.append(file_to_array(f.readlines()))
 
     nr_atoms = int(cube_l[0][1])
 
