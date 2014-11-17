@@ -36,12 +36,8 @@ def file_to_array(s):
         if i > 1: # ignore first two comment lines
             s_new.append(line)
 
-    s_new = '\n'.join(s_new)
-    s_new = string.replace(s_new, '\n', ' ')
-    s_new = s_new.split()
-
     # ugly empty first element is for historic reason
-    return [' '] + s_new
+    return [' '] + ' '.join(s_new).split()
 
 #-------------------------------------------------------------------------------
 
