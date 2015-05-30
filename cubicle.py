@@ -15,7 +15,7 @@ def parse_args(argv):
     parser = OptionParser(usage)
 
     parser.add_option('--calc',
-                      help = 'cubes with prefactors',
+                      help='cubes with prefactors',
                       metavar='"f*cube1 g*cube2 h*cube3 ..."')
 
     (options, args) = parser.parse_args()
@@ -53,8 +53,8 @@ def compute_cube(calc):
 
     nr_atoms = int(cube_l[0][1])
 
-    dim_x = int(cube_l[0][ 5])
-    dim_y = int(cube_l[0][ 9])
+    dim_x = int(cube_l[0][5])
+    dim_y = int(cube_l[0][9])
     dim_z = int(cube_l[0][13])
 
     first = 17 + nr_atoms*5
@@ -102,8 +102,7 @@ def test_compute_cube():
     with open('zero.cube', 'r') as f:
         reference = f.read()
     result += '\n'
-    same = (result == reference)
-    assert(same)
+    assert result == reference
 
 #-------------------------------------------------------------------------------
 
