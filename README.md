@@ -4,5 +4,5 @@
 Cubicle: add/subtract/scale cube files
 ======================================
 
-- [Build and test history](https://travis-ci.org/rbast/cubicle/builds)
+- [Build and test history](https://travis-ci.org/bast/cubicle/builds)
 - Licensed under [BSD-3](../master/LICENSE)
